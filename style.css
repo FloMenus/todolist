@@ -1,3 +1,5 @@
+/* HEADER */
+
 header {
     background-color: #5198C0;
     color : white;
@@ -12,11 +14,15 @@ header {
     width: 50px;
 }
 
+/* MAIN */
+
 main {
     display: flex;
     width: 100%;
     height: 90vh;
 }
+
+/* MENU DE GAUCHE */
 
 .menu-section {
     background-color: #7EA7BE;
@@ -28,6 +34,65 @@ main {
     padding: 10px;
 }
 
+.filter-button {
+    width: 30px;
+    height: 30px;
+}
+
+#all-filter-button {
+    background-color: #045A99;
+}
+
+#to-do-filter-button {
+    background-color: #44BAD4;
+}
+
+#in-progress-filter-button {
+    background-color: #44A0D4;
+}
+
+#done-filter-button {
+    background-color: #208AEB;
+}
+
+.priority-button {
+    width: 30px;
+    height: 30px;
+}
+
+.priorities-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 50%;
+}
+
+#priority-5-filter-button {
+    background-color: #E37272;
+}
+
+#priority-4-filter-button {
+    background-color: #DC9167;
+}
+
+#priority-3-filter-button {
+    background-color: #D7B560;
+}
+
+#priority-2-filter-button {
+    background-color: #DBD663;
+}
+
+#priority-1-filter-button {
+    background-color: #CBD975;
+}
+
+#priority-0-filter-button {
+    background-color: #C8C9C8;
+}
+
+/* Section A FAIRE */
+
 .to-do-section {
     background-color: #B2CED4;
     width: 32.5%;
@@ -38,6 +103,8 @@ main {
     padding: 10px;
 }
 
+/* Section EN COURS*/
+
 .in-progress-section {
     background-color: #97C4DD;
     width: 45%;
@@ -47,6 +114,8 @@ main {
     padding: 10px;
 }
 
+/* Section FAITES*/
+
 .done-section {
     background-color: #8CC3F5;
     width: 32.5%;
@@ -55,6 +124,8 @@ main {
     align-items: center;
     padding: 10px;
 }
+
+/* Gestion des Taches*/
 
 .task-wrapper {
     display: flex;
@@ -76,3 +147,18 @@ main {
     justify-content: space-between;
     margin-bottom: 10px;
 }
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#task-creator {
+    width: 140px;
+    height: 140px;
+    background-color: rgb(109, 31, 182);
+    border: 0px;
+}
+
