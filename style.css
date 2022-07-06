@@ -1,0 +1,48 @@
+header {
+    background-color: #5198C0;
+    color : white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.profile-image {
+    width: 50px;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+}
+
+.menu-section {
+    background-color: #7EA7BE;
+    color : white;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.to-do-section {
+    background-color: #B2CED4;
+    width: 32.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.in-progress-section {
+    background-color: #97C4DD;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.done-section {
+    background-color: #8CC3F5;
+    width: 32.5%;
+    display: flex;
+    flex-direction: column;
+}
