@@ -93,32 +93,48 @@
             <div class="task-wrapper">
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
@@ -132,16 +148,24 @@
             <div class="task-wrapper">
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
@@ -154,22 +178,127 @@
             <div class="task-wrapper">
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button"><h6>Modifier</h6></button>
-                        <button class="delelte-task task-button"><h6>X</h6></button>
+                        <button class="modify-task task-button">
+                            <h6>Modifier</h6>
+                        </button>
+                        <button class="delelte-task task-button">
+                            <h6>X</h6>
+                        </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
             </div>
         </section>
+
+        <!-- Fenetre de création de tâche -->
+
+        <div class="task-creator-window hidden">
+            <nav class="task-creator-window-nav">
+                <button class="random-section">
+                    <img class="dice-image" src="images/dice.png" alt="aléatoire">
+                    <h6>Aléatoire</h6>
+                </button>
+                <button id="task-creator-window-closer">
+                    <h6>X</6>
+                </button>
+            </nav>
+            <button class="task-name-modifier-button">
+                <h5>Nom:</h5>
+                <h5 id="name-current-task">Faire les courses
+                    <!--A modifier dynamiquement -->
+                </h5>
+            </button>
+            <button class="task-priority-modifier-button">
+                <h5>Priorite:</h5>
+                <h5 id="priority-current-task">Aucune
+                    <!--A modifier dynamiquement -->
+                </h5>
+            </button>
+            <button class="task-status-modifier-button">
+                <h5>Status:</h5>
+                <h5 id="status-current-task">En cours
+                    <!--A modifier dynamiquement -->
+                    <h5>
+            </button>
+        </div>
+
+        <!-- Fenetre de modification de nom de tâche -->
+
+        <div class="task-name-modifier-window hidden">
+            <nav class="task-modifier-window-nav">
+                <button id="task-name-modifier-closer">X</button>
+            </nav>
+            <form id="task-name-modifier-form">
+                <label for="name">Nom</label><br>
+                <input type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
+                <button type="submit">Valider</button>
+            </form>
+        </div>
+
+        <!-- Fenetre de modification des priorités de tâche -->
+
+        <div class="task-priority-modifier-window hidden">
+            <nav class="task-modifier-window-nav">
+                <button id="task-priority-modifier-closer">X</button>
+            </nav>
+            <form>
+                <!-- Link fichier Js -->
+                <input type="radio" id="priority-1-radio" name="priority-1" value="1">
+                <label for="priority-1-radio">1</label>
+
+                <input type="radio" id="priority-2-radio" name="priority-2" value="2">
+                <label for="priority-2-radio">2</label>
+
+                <input type="radio" id="priority-3-radio" name="priority-3" value="3">
+                <label for="priority-3-radio">3</label>
+
+                <input type="radio" id="priority-4-radio" name="priority-4" value="4">
+                <label for="priority-4-radio">4</label>
+
+                <input type="radio" id="priority-5-radio" name="priority-5" value="5">
+                <label for="priority-5-radio">5</label>
+
+                <input type="radio" id="priority-0-radio" name="priority-0" value="0">
+                <label for="priority-0-radio">0</label>
+
+                <input type="submit" value="Valider">
+            </form>
+        </div>
+
+            <!-- Fenetre de modification de statut de tâche -->
+
+        <div class="task-status-modifier-window hidden">
+            <nav class="task-modifier-window-nav">
+                <button id="task-status-modifier-closer">X</button>
+            </nav>
+            <form>
+                <!-- Link fichier Js -->
+                <input type="radio" id="status-todo-radio" name="to-do" value="to-do">
+                <label for="priority-1-radio">A faire</label>
+
+                <input type="radio" id="status-inprogress-radio" name="in-progress" value="in-progress">
+                <label for="priority-2-radio">En cours</label>
+
+                <input type="radio" id="status-done-radio" name="done" value="done">
+                <label for="priority-3-radio">Faites</label>
+
+                <input type="submit" value="Valider">
+            </form>
+        </div>
+
     </main>
 </body>
 
