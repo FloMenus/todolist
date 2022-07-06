@@ -17,25 +17,24 @@
 
 <body>
     <header>
-        <div class="header-wrapper">
-            <h1>ToDoList</h1>
-            <h2>ProjetFictif</h2>
-            <div class="profile-images-wrapper">
-                <img class="profile-image" src="images/elon-musk-profile.jpg">
-                <img class="profile-image" src="images/elon-musk-profile.jpg">
-                <img class="profile-image" src="images/elon-musk-profile.jpg">
-                <img class="profile-image" src="images/elon-musk-profile.jpg">
-            </div>
+        <h1>ToDoList</h1>
+        <h2>ProjetFictif</h2>
+        <div class="profile-images-wrapper">
+            <img class="profile-image" src="images/elon-musk-profile.jpg">
+            <img class="profile-image" src="images/elon-musk-profile.jpg">
+            <img class="profile-image" src="images/elon-musk-profile.jpg">
     </header>
     <main>
-        <aside class="menu-section">
-            <div class="task-creator">
-                <nav class="task-navigation">
-                    <h6>Modifier</h6>
-                    <h6>X</h6>
-                </nav>
-                <h4>Créer Tâche</h4>
-            </div>
+        <div class="menu-section">
+            <button id="task-creator">
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <h6>Modifier</h6>
+                        <h6>X</h6>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+            </button>
             <section class="categories">
                 <h5>CATEGORIES</h5>
                 <h5>· Cochez ·-</h5>
@@ -61,7 +60,7 @@
             <section class="priorities">
                 <h5>PRIORITÉS</h5>
                 <h5>· Cochez ·</h5>
-                <div class="priorities-button-wrapper">
+                <div class="priorities-buttons-wrapper">
                     <article class="priority-5-filter-article">
                         <button id="priority-5-filter-button" class="priority-button"></button>
                         <p>5</p>
@@ -102,9 +101,89 @@
 
                 </div>
             </section>
-        </aside>
-
         </div>
+        <section class="to-do-section">
+            <h3>A faire</h3>
+            <div class="task-wrapper">
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="in-progress-section">
+            <h3>En cours</h3>
+            <div class="task-wrapper">
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+            </div>
+
+        </section>
+        <section class="done-section">
+            <h3>Faites</h3>
+            <div class="task-wrapper">
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+                <div class="task-square priority-0">
+                    <nav class="task-navigation">
+                        <button class="modify-task task-button"><h6>Modifier</h6></button>
+                        <button class="delelte-task task-button"><h6>X</h6></button>
+                    </nav>
+                    <h4 class="task-name">Créer Tâche</h4>
+                </div>
+
+            </div>
+        </section>
     </main>
 
     <script src="index.js"></script>

@@ -44,7 +44,7 @@
 
 
 // FONCTIONNE!!! 
-// const test = document.getElementById('create')
+// const test = document.getElementByIgit addd('create')
 
 // const onTaskSubmit = () => {
 //   create.innerHTML = `<p>test réussi!</p>`
