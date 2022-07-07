@@ -91,7 +91,7 @@
         <section class="to-do-section">
             <h3>A faire</h3>
             <div class="task-wrapper">
-                
+
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
                         <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
@@ -208,17 +208,17 @@
             </nav>
             <form id="task-name-creator-form">
                 <label for="name">Nom</label><br>
-                <input type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
+                <input id="name-task" type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
                 
 
                 <input type="radio" id="status-todo-radio" name="status" value="to-do">
-                <label for="priority-1-radio">A faire</label>
+                <label for="status-done-radio">A faire</label>
 
                 <input type="radio" id="status-inprogress-radio" name="status" value="in-progress">
-                <label for="priority-2-radio">En cours</label>
+                <label for="status-done-radio">En cours</label>
 
                 <input type="radio" id="status-done-radio" name="status" value="done">
-                <label for="priority-3-radio">Faites</label>
+                <label for="status-done-radio">Faites</label>
 
                 <button type="submit">Valider</button>
             </form>
