@@ -129,8 +129,16 @@ let onTaskSubmit = (e) => {
     e.preventDefault()
     let nameTask = document.getElementById("name-task")
     console.log(nameTask.value)
-    let task = {value :nameTask.value ,status:'A faire'}
+    let task = {value :nameTask.value, status:'A faire'}
     taskWrapper.push(task)
-}
+    console.log(taskWrapper)
+  }
 
 taskCreationForm.addEventListener("submit",onTaskSubmit)
+
+
+const newItemAdded = document.getElementById('create')
+
+const injectContent = () => {
+  create.innerHTML = create.innerHTML+`<p>Dur dur</p>`
+}
