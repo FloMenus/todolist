@@ -60,6 +60,7 @@
 //  OUVERTURE/FERMETURE DES FENETRES ///////////////////////////////
 
 let taskCreatorWindow = document.getElementsByClassName("task-creator-window")
+let taskModifierWindow = document.getElementsByClassName("task-modifier-window")
 let taskNameModifier = document.getElementsByClassName("task-name-modifier-window")
 let taskPriorityModifier = document.getElementsByClassName("task-priority-modifier-window")
 let taskStatusModifier = document.getElementsByClassName("task-status-modifier-window")
@@ -70,6 +71,13 @@ taskCreatorWindowOpener = () => {
 }
 taskCreatorWindowCloser = () => {
     taskCreatorWindow[0].classList.add("hidden")
+}
+
+taskModifierWindowOpener = () => {
+    taskModifierWindow[0].classList.remove("hidden")
+}
+taskModifierWindowCloser = () => {
+    taskModifierWindow[0].classList.add("hidden")
 }
 
 
@@ -93,5 +101,9 @@ taskStatusWindowOpener=()=> {
 taskStatusWindowCloser=()=> {
     taskStatusModifier[0].classList.add("hidden")
 }
+
+// TABLEAU CONTENANT LES TACHES
+
+let taskWrapper = []
 
 

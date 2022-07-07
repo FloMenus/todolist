@@ -26,7 +26,7 @@
     </header>
     <main>
         <div class="menu-section">
-            <button onclick="taskCreatorWindowOpener()"id="task-creator">
+            <button onclick="taskCreatorWindowOpener()" id="task-creator">
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
                         <h6>Modifier</h6>
@@ -105,9 +105,10 @@
         <section class="to-do-section">
             <h3>A faire</h3>
             <div class="task-wrapper">
+                
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button">
+                        <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
                             <h6>Modifier</h6>
                         </button>
                         <button class="delelte-task task-button">
@@ -119,7 +120,7 @@
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button">
+                        <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
                             <h6>Modifier</h6>
                         </button>
                         <button class="delelte-task task-button">
@@ -129,29 +130,30 @@
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
-                <div class="task-square priority-0">
-                    <nav class="task-navigation">
-                        <button class="modify-task task-button">
-                            <h6>Modifier</h6>
-                        </button>
-                        <button class="delelte-task task-button">
-                            <h6>X</h6>
-                        </button>
-                    </nav>
-                    <h4 class="task-name">Créer Tâche</h4>
-                </div>
 
-                <div class="task-square priority-0">
-                    <nav class="task-navigation">
-                        <button class="modify-task task-button">
-                            <h6>Modifier</h6>
-                        </button>
-                        <button class="delelte-task task-button">
-                            <h6>X</h6>
-                        </button>
-                    </nav>
-                    <h4 class="task-name">Créer Tâche</h4>
-                </div>
+                    <div class="task-square priority-0">
+                        <nav class="task-navigation">
+                            <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
+                                <h6>Modifier</h6>
+                            </button>
+                            <button class="delelte-task task-button">
+                                <h6>X</h6>
+                            </button>
+                        </nav>
+                        <h4 class="task-name">Créer Tâche</h4>
+                    </div>
+
+                    <div class="task-square priority-0">
+                        <nav class="task-navigation">
+                            <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
+                                <h6>Modifier</h6>
+                            </button>
+                            <button class="delelte-task task-button">
+                                <h6>X</h6>
+                            </button>
+                        </nav>
+                        <h4 class="task-name">Créer Tâche</h4>
+                    </div>
 
             </div>
 
@@ -160,9 +162,10 @@
         <section class="in-progress-section">
             <h3>En cours</h3>
             <div class="task-wrapper">
+
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button">
+                        <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
                             <h6>Modifier</h6>
                         </button>
                         <button class="delelte-task task-button">
@@ -172,17 +175,17 @@
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
-                <div class="task-square priority-0">
-                    <nav class="task-navigation">
-                        <button class="modify-task task-button">
-                            <h6>Modifier</h6>
-                        </button>
-                        <button class="delelte-task task-button">
-                            <h6>X</h6>
-                        </button>
-                    </nav>
-                    <h4 class="task-name">Créer Tâche</h4>
-                </div>
+                    <div class="task-square priority-0">
+                        <nav class="task-navigation">
+                            <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
+                                <h6>Modifier</h6>
+                            </button>
+                            <button class="delelte-task task-button">
+                                <h6>X</h6>
+                            </button>
+                        </nav>
+                        <h4 class="task-name">Créer Tâche</h4>
+                    </div>
 
             </div>
 
@@ -190,21 +193,10 @@
         <section class="done-section">
             <h3>Faites</h3>
             <div class="task-wrapper">
-                <div class="task-square priority-0">
-                    <nav class="task-navigation">
-                        <button class="modify-task task-button">
-                            <h6>Modifier</h6>
-                        </button>
-                        <button class="delelte-task task-button">
-                            <h6>X</h6>
-                        </button>
-                    </nav>
-                    <h4 class="task-name">Créer Tâche</h4>
-                </div>
 
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
-                        <button class="modify-task task-button">
+                        <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
                             <h6>Modifier</h6>
                         </button>
                         <button class="delelte-task task-button">
@@ -216,8 +208,7 @@
 
             </div>
         </section>
-
-        <!-- Fenetre de création de tâche -->
+        <!-- Fenetre de création de taches -->
 
         <div class="task-creator-window hidden">
             <nav class="task-creator-window-nav">
@@ -225,7 +216,38 @@
                     <img class="dice-image" src="images/dice.png" alt="aléatoire">
                     <h6>Aléatoire</h6>
                 </button>
-                <button onclick="taskCreatorWindowCloser()" id="task-creator-window-closer">
+                <button onclick="taskCreatorWindowCloser()" id="task-modifier-window-closer">
+                    <h6>X</6>
+                </button>
+            </nav>
+            <form id="task-name-creator-form">
+                <label for="name">Nom</label><br>
+                <input type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
+                
+
+                <input type="radio" id="status-todo-radio" name="status" value="to-do">
+                <label for="priority-1-radio">A faire</label>
+
+                <input type="radio" id="status-inprogress-radio" name="status" value="in-progress">
+                <label for="priority-2-radio">En cours</label>
+
+                <input type="radio" id="status-done-radio" name="status" value="done">
+                <label for="priority-3-radio">Faites</label>
+
+                <button type="submit">Valider</button>
+            </form>
+            
+        </div>
+
+        <!-- Fenetre de modification de tâche -->
+
+        <div class="task-modifier-window hidden">
+            <nav class="task-creator-window-nav">
+                <button class="random-section">
+                    <img class="dice-image" src="images/dice.png" alt="aléatoire">
+                    <h6>Aléatoire</h6>
+                </button>
+                <button onclick="taskModifierWindowCloser()" id="task-modifier-window-closer">
                     <h6>X</6>
                 </button>
             </nav>
