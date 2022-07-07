@@ -26,7 +26,7 @@
     </header>
     <main>
         <div class="menu-section">
-            <button id="task-creator">
+            <button onclick="taskCreatorWindowOpener()"id="task-creator">
                 <div class="task-square priority-0">
                     <nav class="task-navigation">
                         <h6>Modifier</h6>
@@ -225,23 +225,23 @@
                     <img class="dice-image" src="images/dice.png" alt="aléatoire">
                     <h6>Aléatoire</h6>
                 </button>
-                <button id="task-creator-window-closer">
+                <button onclick="taskCreatorWindowCloser()" id="task-creator-window-closer">
                     <h6>X</6>
                 </button>
             </nav>
-            <button class="task-name-modifier-button">
+            <button onclick="taskNameWindowOpener()" class="task-name-modifier-button">
                 <h5>Nom:</h5>
                 <h5 id="name-current-task">Faire les courses
                     <!--A modifier dynamiquement -->
                 </h5>
             </button>
-            <button class="task-priority-modifier-button">
+            <button onclick="taskPriorityWindowOpener()" class="task-priority-modifier-button">
                 <h5>Priorite:</h5>
                 <h5 id="priority-current-task">Aucune
                     <!--A modifier dynamiquement -->
                 </h5>
             </button>
-            <button class="task-status-modifier-button">
+            <button onclick="taskStatusWindowOpener()" class="task-status-modifier-button">
                 <h5>Status:</h5>
                 <h5 id="status-current-task">En cours
                     <!--A modifier dynamiquement -->
@@ -253,7 +253,7 @@
 
         <div class="task-name-modifier-window hidden">
             <nav class="task-modifier-window-nav">
-                <button id="task-name-modifier-closer">X</button>
+                <button onclick="taskNameWindowCloser()" id="task-name-modifier-closer">X</button>
             </nav>
             <form id="task-name-modifier-form">
                 <label for="name">Nom</label><br>
@@ -266,26 +266,26 @@
 
         <div class="task-priority-modifier-window hidden">
             <nav class="task-modifier-window-nav">
-                <button id="task-priority-modifier-closer">X</button>
+                <button onclick="taskPriorityWindowCloser()" id="task-priority-modifier-closer">X</button>
             </nav>
             <form>
                 <!-- Link fichier Js -->
-                <input type="radio" id="priority-1-radio" name="priority-1" value="1">
+                <input type="radio" id="priority-1-radio" name="priority" value="1">
                 <label for="priority-1-radio">1</label>
 
-                <input type="radio" id="priority-2-radio" name="priority-2" value="2">
+                <input type="radio" id="priority-2-radio" name="priority" value="2">
                 <label for="priority-2-radio">2</label>
 
-                <input type="radio" id="priority-3-radio" name="priority-3" value="3">
+                <input type="radio" id="priority-3-radio" name="priority" value="3">
                 <label for="priority-3-radio">3</label>
 
-                <input type="radio" id="priority-4-radio" name="priority-4" value="4">
+                <input type="radio" id="priority-4-radio" name="priority" value="4">
                 <label for="priority-4-radio">4</label>
 
-                <input type="radio" id="priority-5-radio" name="priority-5" value="5">
+                <input type="radio" id="priority-5-radio" name="priority" value="5">
                 <label for="priority-5-radio">5</label>
 
-                <input type="radio" id="priority-0-radio" name="priority-0" value="0">
+                <input type="radio" id="priority-0-radio" name="priority" value="0">
                 <label for="priority-0-radio">0</label>
 
                 <input type="submit" value="Valider">
@@ -296,17 +296,17 @@
 
         <div class="task-status-modifier-window hidden">
             <nav class="task-modifier-window-nav">
-                <button id="task-status-modifier-closer">X</button>
+                <button onclick="taskStatusWindowCloser()" id="task-status-modifier-closer">X</button>
             </nav>
             <form>
                 <!-- Link fichier Js -->
-                <input type="radio" id="status-todo-radio" name="to-do" value="to-do">
+                <input type="radio" id="status-todo-radio" name="status" value="to-do">
                 <label for="priority-1-radio">A faire</label>
 
-                <input type="radio" id="status-inprogress-radio" name="in-progress" value="in-progress">
+                <input type="radio" id="status-inprogress-radio" name="status" value="in-progress">
                 <label for="priority-2-radio">En cours</label>
 
-                <input type="radio" id="status-done-radio" name="done" value="done">
+                <input type="radio" id="status-done-radio" name="status" value="done">
                 <label for="priority-3-radio">Faites</label>
 
                 <input type="submit" value="Valider">
