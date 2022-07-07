@@ -134,8 +134,8 @@ let onTaskSubmit = (e) => {
     taskWrapper.push(task)
     console.log(taskWrapper)
     taskToDoWrapper.innerHTML+=
-    `<div class="task-square priority-0 statut-${task.status}">
-    <nav class="task-navigation">
+    `<div id="${nameTask.value}" class="task-square priority-0 statut-${task.status}">
+    <nav  class="task-navigation">
         <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
             <h6>Modifier</h6>
         </button>
@@ -151,8 +151,32 @@ let onTaskSubmit = (e) => {
 taskCreationForm.addEventListener("submit",onTaskSubmit)
 
 
-const newItemAdded = document.getElementById('create')
+// SUPPRESSION DE TACHES
 
-const injectContent = () => {
-  create.innerHTML = create.innerHTML+`<p>Dur dur</p>`
+let = taskErasing = () => {
+
+  let toDelete = document.getElementById("");
+  toDelete.remove()
+
 }
+
+
+
+// let b = document.body;
+
+
+let = taskErasingTest = () => {
+  // e.preventDefault()
+  // let concernedId = 
+  let toDelete = document.getElementById("erasedTest");
+  toDelete.remove()
+  // b.removeChild(toDelete);
+  // let erasedName = document.getElementById("ID à définir")
+  // let erasedTask = {value: nameTask.value, status:'A faire'}
+}
+
+// supprimer une tache (objet) :
+// indices:
+// find (pour retrouver l'objet)
+// indexOf
+// slice 

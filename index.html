@@ -108,23 +108,23 @@
                             <h6>Modifier</h6>
                         </button>
                         <button class="delelte-task task-button">
-                            <h6>X</h6>
+                            <h6 onclick="taskErasing()">X</h6>
                         </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
                 </div>
 
-                    <div class="task-square priority-0">
-                        <nav class="task-navigation">
-                            <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
-                                <h6>Modifier</h6>
-                            </button>
-                            <button class="delelte-task task-button">
-                                <h6>X</h6>
-                            </button>
-                        </nav>
-                        <h4 class="task-name">Créer Tâche</h4>
-                    </div>
+                <div class="task-square priority-0">
+                  <nav class="task-navigation">
+                      <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
+                       <h6>Modifier</h6>
+                      </button>
+                      <button class="delelte-task task-button">
+                        <h6 onclick="taskErasing()">X</h6>
+                      </button>
+                  </nav>
+                      <h4 class="task-name">Créer Tâche</h4>
+                </div>
 
             </div>
 
@@ -139,7 +139,7 @@
                             <h6>Modifier</h6>
                         </button>
                         <button class="delelte-task task-button">
-                            <h6>X</h6>
+                            <h6 onclick="taskErasing()">X</h6>
                         </button>
                     </nav>
                     <h4 class="task-name">Créer Tâche</h4>
@@ -156,7 +156,7 @@
                     <h6>Aléatoire</h6>
                 </button>
                 <button onclick="taskCreatorWindowCloser()" id="task-modifier-window-closer">
-                    <h6>X</6>
+                    <h6 onclick="taskErasing()">X</6>
                 </button>
             </nav>
             <form id="task-name-creator-form">
@@ -187,7 +187,7 @@
                     <h6>Aléatoire</h6>
                 </button>
                 <button onclick="taskModifierWindowCloser()" id="task-modifier-window-closer">
-                    <h6>X</6>
+                    <h6 onclick="taskErasing()">X</6>
                 </button>
             </nav>
             <button onclick="taskNameWindowOpener()" class="task-name-modifier-button">
@@ -299,9 +299,22 @@
         </div>
       </form>
 
-      <article class="test">
-        <button onclick="testClicked()" class="test-button"></button>
-        <p id="test">test</p>
+
+      <div id="erasedTest"  class="task-square priority-0">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
+             <h6>Modifier</h6>
+            </button>
+            <button class="delelte-task task-button">
+              <h6 onclick="taskErasing()">X</h6>
+            </button>
+        </nav>
+            <h4 class="task-name">Créer Tâche</h4>
+      </div>
+
+      <article id="test" class="test">
+        <button onclick="taskErasingTest()" class="test-button"></button>
+        <p>test</p>
       </article>
 
       <article class="create">
@@ -309,6 +322,7 @@
         <p id="create">create</p>
       </article>
     </footer>
+
 </body>
 
 </html>
