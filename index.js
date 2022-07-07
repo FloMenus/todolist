@@ -106,4 +106,16 @@ taskStatusWindowCloser=()=> {
 
 let taskWrapper = []
 
+// CREATION DE TACHES
+let taskCreationForm = document.getElementById("task-name-creator-form")
 
+
+let onTaskSubmit = (e) => {
+    e.preventDefault()
+    let nameTask = document.getElementById("name-task")
+    console.log(nameTask.value)
+    let task = {value :nameTask.value ,status:'A faire'}
+    taskWrapper.push(task)
+}
+
+taskCreationForm.addEventListener("submit",onTaskSubmit)
