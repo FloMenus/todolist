@@ -22,12 +22,6 @@
 //   e.stopPropagation();// Don't bubble/capture the event any further
 // });
 
-// const task = {
-//   toDo: "Etudier",
-//   value: "5",
-//   status:"En cours"
-// }
-
 // // fonctions
 // const create = document.getElementById('create')
 
@@ -44,13 +38,37 @@
 
 
 // FONCTIONNE!!! 
-// const test = document.getElementByIgit addd('create')
+// const test = document.getElementById('create')
 
 // const onTaskSubmit = () => {
 //   create.innerHTML = `<p>test réussi!</p>`
 // }
 // !!!!
 
+// const task = {
+//   name: "comprendre",
+//   value: "le",
+//   status:"javascript"
+// }
+// const task = {
+//   name: "Etudier",
+//   value: "5",
+//   status:"En cours"
+// }
+
+// const creation = document.getElementById('create')
+
+// const createdClicked = () => {
+//   create.innerHTML = `${task.name} ${task.value} ${task.status}`
+// }
+
+
+
+// const tatonnement = document.getElementById('test')
+
+// const testClicked = () => {
+//   test.innerHTML = `<p>test réussi</p>`
+// }
 
 //  const titre = document.getElementById('titre')
 //   titre.innerHTML = `<h1>Shi-Fu-Mi!!!</h1>`
