@@ -141,6 +141,7 @@ main {
 
 /* Section EN COURS*/
 
+
 .in-progress-section {
     background-color: #97C4DD;
     width: 45%;
@@ -159,6 +160,16 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 10px;
+}
+
+/* Sections Extended */
+
+.extended {
+    width: 78%;
+    height: 87vh;
+    position: absolute;
+    left: 20%
+
 }
 
 /* Gestion des Taches*/

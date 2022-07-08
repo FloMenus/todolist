@@ -59,72 +59,56 @@
             </section>
             <section class="priorities">
                 <h5>PRIORITÉS</h5>
-                <h5>· Cochez ·</h5>
-                <div class="priorities-buttons-wrapper">
-                    <article class="priority-5-filter-article">
-                        <button id="priority-5-filter-button" class="priority-button"></button>
-                        <p>5</p>
-                    </article>
-                    <article class="priority-4-filter-article">
-                        <button id="priority-4-filter-button" class="priority-button"></button>
-                        <p>4</p>
-                    </article>
-                    <article class="priority-3-filter-article">
-                        <button id="priority-3-filter-button" class="priority-button"></button>
-                        <p>3</p>
-                    </article>
-                    <article class="priority-2-filter-article">
-                        <button id="priority-2-filter-button" class="priority-button"></button>
-                        <p>2</p>
-                    </article>
-                    <article class="priority-1-filter-article">
-                        <button id="priority-1-filter-button" class="priority-button"></button>
-                        <p>1</p>
-                    </article>
-                    <article class="priority-0-filter-article">
-                        <button id="priority-0-filter-button" class="priority-button"></button>
-                        <p>Sans</p>
-                    </article>
-                </div>
+                    <form class="priorities-checkbox">
+
+                        <div>
+                            <input type="checkbox" id="priority-0-checkbox" name="priority-0"checked>
+                            <label for="priority-0-checkbox">0</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="priority-1-checkbox" name="priority-1"checked>
+                            <label for="priority-1-checkbox">1</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="priority-2-checkbox" name="priority-2"checked>
+                            <label for="priority-2-checkbox">2</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="priority-3-checkbox" name="priority-3"checked>
+                            <label for="priority-3-checkbox">3</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="priority-4-checkbox" name="priority-4"checked>
+                            <label for="priority-4-checkbox">4</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="priority-5-checkbox" name="priority-5" checked>
+                            <label for="priority-5-checkbox">5</label>
+                        </div>
+                    </form>
             </section>
         </div>
+        <!-- <section class="to-do-section hidden">
+            <h3>A faire</h3>
+            <div class="task-wrapper" id="task-to-do-wrapper"> -->
+
+
+
+            </div>
+
+        </section>
         <section class="to-do-section">
             <h3>A faire</h3>
             <div class="task-wrapper" id="task-to-do-wrapper">
 
-               
-
             </div>
-
         </section>
 
         <section class="in-progress-section">
             <h3>En cours</h3>
             <div class="task-wrapper task-in-progress-wrapper">
 
-                <div class="task-square priority-0">
-                    <nav class="task-navigation">
-                        <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
-                            <h6>Modifier</h6>
-                        </button>
-                        <button class="delelte-task task-button">
-                            <h6>X</h6>
-                        </button>
-                    </nav>
-                    <h4 class="task-name">Créer Tâche</h4>
-                </div>
 
-                    <div class="task-square priority-0">
-                        <nav class="task-navigation">
-                            <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
-                                <h6>Modifier</h6>
-                            </button>
-                            <button class="delelte-task task-button">
-                                <h6>X</h6>
-                            </button>
-                        </nav>
-                        <h4 class="task-name">Créer Tâche</h4>
-                    </div>
 
             </div>
 
@@ -138,7 +122,7 @@
                         <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
                             <h6>Modifier</h6>
                         </button>
-                        <button class="delelte-task task-button">
+                        <button onclick="taskDelete()" class="delete-task task-button">
                             <h6>X</h6>
                         </button>
                     </nav>
@@ -162,7 +146,7 @@
             <form id="task-name-creator-form">
                 <label for="name">Nom</label><br>
                 <input id="name-task" type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
-                
+
 
                 <input type="radio" id="status-todo-radio" name="status" value="to-do">
                 <label for="status-done-radio">A faire</label>
@@ -175,7 +159,7 @@
 
                 <button type="submit">Valider</button>
             </form>
-            
+
         </div>
 
         <!-- Fenetre de modification de tâche -->
@@ -192,19 +176,18 @@
             </nav>
             <button onclick="taskNameWindowOpener()" class="task-name-modifier-button">
                 <h5>Nom:</h5>
-                <h5 id="name-current-task">Faire les courses
-                    <!--A modifier dynamiquement -->
+                <h5 id="name-current-task">A modifier dynamiquement
                 </h5>
             </button>
             <button onclick="taskPriorityWindowOpener()" class="task-priority-modifier-button">
                 <h5>Priorite:</h5>
-                <h5 id="priority-current-task">Aucune
+                <h5 id="priority-current-task">A modifier dynamiquement
                     <!--A modifier dynamiquement -->
                 </h5>
             </button>
             <button onclick="taskStatusWindowOpener()" class="task-status-modifier-button">
                 <h5>Status:</h5>
-                <h5 id="status-current-task">En cours
+                <h5 id="status-current-task">A modifier dynamiquement
                     <!--A modifier dynamiquement -->
                     <h5>
             </button>
@@ -218,7 +201,7 @@
             </nav>
             <form id="task-name-modifier-form">
                 <label for="name">Nom</label><br>
-                <input type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
+                <input id="name-task-modifier" type="text" value="" /><!-- Value a modifier dynamiquement -->
                 <button type="submit">Valider</button>
             </form>
         </div>
@@ -253,7 +236,7 @@
             </form>
         </div>
 
-            <!-- Fenetre de modification de statut de tâche -->
+        <!-- Fenetre de modification de statut de tâche -->
 
         <div class="task-status-modifier-window hidden">
             <nav class="task-modifier-window-nav">
@@ -279,35 +262,35 @@
     <script src="index.js"></script>
 
     <footer>
-      <form action="" method="get" class="form-example">
-        <div class="form-example">
-          <label for="name">Entrez le nom de la tâche: </label>
-          <input type="text" name="name" id="name" required>
-        </div>
-        <div class="form-example">
-          <label for="value">Choisissez une priorité: </label>
-          <input type="email" name="email" id="email" required>
-        </div>
-        <div class="form-example">
-          <label for="status">Où en est cette tâche ?</label>
-          <input type="radio" name="taskStatus" id="taskStatus" required>
-          <label for="status">à faire ?</label>
-          <input type="radio" name="taskStatus" id="taskStatus" required>
-        </div>
-        <div class="form-example">
-          <input type="submit" value="Création de la tâche">
-        </div>
-      </form>
+        <form action="" method="get" class="form-example">
+            <div class="form-example">
+                <label for="name">Entrez le nom de la tâche: </label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-example">
+                <label for="value">Choisissez une priorité: </label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-example">
+                <label for="status">Où en est cette tâche ?</label>
+                <input type="radio" name="taskStatus" id="taskStatus" required>
+                <label for="status">à faire ?</label>
+                <input type="radio" name="taskStatus" id="taskStatus" required>
+            </div>
+            <div class="form-example">
+                <input type="submit" value="Création de la tâche">
+            </div>
+        </form>
 
-      <article class="test">
-        <button onclick="testClicked()" class="test-button"></button>
-        <p id="test">test</p>
-      </article>
+        <article class="test">
+            <button onclick="testClicked()" class="test-button"></button>
+            <p id="test">test</p>
+        </article>
 
-      <article class="create">
-        <button onclick="createdClicked()" class="create-button"></button>
-        <p id="create">create</p>
-      </article>
+        <article class="create">
+            <button onclick="createdClicked()" class="create-button"></button>
+            <p id="create">create</p>
+        </article>
     </footer>
 </body>
 

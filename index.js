@@ -77,13 +77,14 @@
 
 //  OUVERTURE/FERMETURE DES FENETRES ///////////////////////////////
 
+// Declaration des variables correspondantes aux fenetres de création & modification dans le HTML
 let taskCreatorWindow = document.getElementsByClassName("task-creator-window")
 let taskModifierWindow = document.getElementsByClassName("task-modifier-window")
 let taskNameModifier = document.getElementsByClassName("task-name-modifier-window")
 let taskPriorityModifier = document.getElementsByClassName("task-priority-modifier-window")
 let taskStatusModifier = document.getElementsByClassName("task-status-modifier-window")
 
-
+// Fonctions de fermeture ou d'ouverture des fenetre de création & modification
 taskCreatorWindowOpener = () => {
     taskCreatorWindow[0].classList.remove("hidden")
 }
@@ -124,31 +125,97 @@ taskStatusWindowCloser=()=> {
 
 let taskWrapper = []
 
+// CREATION D'UNE VARIABLE INDEX, CELLE CI SERVIRA A INCREMENTER UN ATTRIBUT INDEX AUX OBJETS (TACHES) 
+
+let indexTaskVariable = 0
+
 
 // CREATION DE TACHES
+
 let taskCreationForm = document.getElementById("task-name-creator-form")
 let taskToDoWrapper = document.getElementById("task-to-do-wrapper")
 
-
+// FONCTION QUI S'EXECUTE LORQUE L'ON SUBMIT UNE CREATION DE TACHE
 let onTaskSubmit = (e) => {
-    e.preventDefault()
-    let nameTask = document.getElementById("name-task")
-    let task = {value :nameTask.value ,status:'A faire'}
-    taskWrapper.push(task)
-    console.log(taskWrapper)
-    taskToDoWrapper.innerHTML+=
-    `<div class="task-square priority-0 statut-${task.status}">
+
+    e.preventDefault() //Evite le rafraichissement de la page lors du submit
+    let nameTask = document.getElementById("name-task") // On choppe la valeur du nom donnée lors du submit
+    var task = {value : nameTask.value ,status:'A faire',priority: 0, indexTask : indexTaskVariable} // on déclare l'objet avec tout ses parametres
+    taskWrapper.push(task) // On met cet objet dans le tableau
+    taskToDoWrapper.innerHTML= '' // On évite les doublons lors de la création de taches dans le HTML
+
+    // VA PARCOURIR TOUT LE TABLEAU , et a chaque objet du tableau, va incrémenter cet objet dans le HTML
+    // Les valeurs sont changées à chaque objet de manière dynamique avec le ${}
+    taskWrapper.forEach (task => { 
+        taskToDoWrapper.innerHTML +=
+    `<div class="task-square statut-${task.status}" id="id-${task.indexTask}">
     <nav class="task-navigation">
-        <button onclick="taskModifierWindowOpener()" class="modify-task task-button">
+        <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
             <h6>Modifier</h6>
         </button>
-        <button class="delelte-task task-button">
+        <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
             <h6>X</h6>
         </button>
     </nav>
     <h4 class="task-name">${task.value}</h4>
 </div>`
+// Permet de faire augmenter la variable d'index a chaque fois qu'un objet est soumis
+indexTaskVariable+=1
+    })
+    console.log (taskWrapper)
+}
+    // C'est ici que le form est "écouté"
+    //  et qu'il executera la fonction onTaskSubmit () lorsque on le soumettra
+    taskCreationForm.addEventListener("submit",onTaskSubmit)
+
+// SUPPRESSION DE TACHE
+
+
+let taskDelete = (indexTaskButton) => {
+
+    // Suppression dans le DOM
+    let deleteButtonSelector = document.getElementById(`task-${indexTaskButton}`)
+    deleteButtonSelector.parentElement.parentNode.remove(deleteButtonSelector)
+
+    // Suppression dans le tableau
+    let taskWrapperFilteringDeletion = taskWrapper.filter(function (task)
+    {
+      return task.indexTask != indexTaskButton
+    }
+    )
+
+    taskWrapper = taskWrapperFilteringDeletion
+    console.log(taskWrapper)
 }
 
+// MODIFICATION DE TACHE (A partir de ce moment là c'est work in progress donc j'ai pas commenté)
 
-taskCreationForm.addEventListener("submit",onTaskSubmit)
+
+
+let taskNameModifierForm = document.getElementById("task-name-modifier-form")
+
+taskNameModifierSubmit = (indexTaskName) => {
+    indexTaskName.preventDefault()
+    let nameTaskModifier = document.getElementById("name-task-modifer")
+    // IDENTIFIER LE BON ELEMENT DU TABLEAU
+    // taskFinder = (task) => {
+    //     return  taskWrapper.indexOf(task.indexTask = `${indexTask}`)
+    //   }
+
+
+      indexOfTask = taskWrapper.findIndex(task => {
+        return task.indexTask = indexTaskName;
+      })
+
+      console.log(indexOfTask)
+
+    taskWrapper[indexOfTask].value = nameTaskModifier
+
+    console.log(taskWrapper)
+}
+
+taskNameModifierForm.addEventListener("submit",taskNameModifierSubmit)
+
+// FILTRAGE
+
+
