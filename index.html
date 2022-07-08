@@ -276,9 +276,9 @@
 
     </main>
 
-    <script src="index.js"></script>
 
-    <footer>
+
+    <!-- <footer>
       <form action="" method="get" class="form-example">
         <div class="form-example">
           <label for="name">Entrez le nom de la tâche: </label>
@@ -297,7 +297,28 @@
         <div class="form-example">
           <input type="submit" value="Création de la tâche">
         </div>
-      </form>
+      </form> -->
+
+      <br>
+      <br>
+      <h1 id="textForTests" onclick="removeSpacesFromString()">Texte pour tests</h1>
+      <br>
+      <br>
+      <h1 id="textToChange" onclick="newId()">Texte à remplacer par un ID</h1>
+      <br>
+
+      <button onclick="taskCreatorWindowOpener()" id="IdToCreate">
+        <div class="task-square priority-0">
+            <nav class="task-navigation">
+                <h6>Modifier</h6>
+                <h6>X</h6>
+            </nav>
+            <h4 class="task-name">Test création ID dynamique</h4>
+        </div>
+    </button>
+    
+    <br>
+    <br>
 
 
       <div id="erasedTest"  class="task-square priority-0">
@@ -309,7 +330,7 @@
               <h6 onclick="taskErasing()">X</h6>
             </button>
         </nav>
-            <h4 class="task-name">Créer Tâche</h4>
+            <h4 onclick="creation()" class="task-name">Créer Tâche</h4>
       </div>
 
       <article id="test" class="test">
@@ -321,8 +342,11 @@
         <button onclick="injectContent()" class="create-button"></button>
         <p id="create">create</p>
       </article>
+
+
     </footer>
 
+    <script src="index.js"></script>
 </body>
 
 </html>

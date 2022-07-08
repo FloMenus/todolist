@@ -155,12 +155,31 @@ taskCreationForm.addEventListener("submit",onTaskSubmit)
 
 let = taskErasing = () => {
 
+  let creatingId = document.firstElementChild().replace(/\s+/g, '');
   let toDelete = document.getElementById("");
   toDelete.remove()
 
 }
 
+let creatingId = document.getElementById('IdToCreate')
 
+let creation = () => {
+  console.log(creatingId)
+}
+
+const removeSpacesFromString =() => { 
+  let textToModify = "Salut, je tente des trucs"
+  let newTextArray = textToModify.split(" ")
+  let newText = newTextArray.join("")
+  textForTests.innerHTML = newText
+}
+
+const newId =() => { 
+  let textToModify = document.getElementsByClassName('erasedTest').h4
+  let newTextArray = textToModify.split(" ")
+  let newText = newTextArray.join("")
+  textToChange.innerHTML = newText
+}
 
 // let b = document.body;
 
