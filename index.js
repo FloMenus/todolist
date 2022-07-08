@@ -67,11 +67,8 @@
 // const tatonnement = document.getElementById('test')
 
 // const testClicked = () => {
-//   test.innerHTML = `<p>test réussi</p>`
+//   test.innerHTML = `<p>${taskCreatorWindow[0]}</p>`
 // }
-
-//  const titre = document.getElementById('titre')
-//   titre.innerHTML = `<h1>Shi-Fu-Mi!!!</h1>`
 
 
 
@@ -177,7 +174,7 @@ let taskDelete = (indexTaskButton) => {
     let deleteButtonSelector = document.getElementById(`task-${indexTaskButton}`)
     deleteButtonSelector.parentElement.parentNode.remove(deleteButtonSelector)
 
-    // Suppression dans le tableau
+    // Suppression dans le tableau (la console affiche le tableau de taches lors de la suppression de taches)
     let taskWrapperFilteringDeletion = taskWrapper.filter(function (task)
     {
       return task.indexTask != indexTaskButton

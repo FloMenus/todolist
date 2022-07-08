@@ -107,8 +107,7 @@
         <section class="in-progress-section">
             <h3>En cours</h3>
             <div class="task-wrapper task-in-progress-wrapper">
-
-
+   
 
             </div>
 
@@ -140,7 +139,7 @@
                     <h6>Aléatoire</h6>
                 </button>
                 <button onclick="taskCreatorWindowCloser()" id="task-modifier-window-closer">
-                    <h6>X</6>
+                    <h6 onclick="taskErasing()">X</6>
                 </button>
             </nav>
             <form id="task-name-creator-form">
@@ -171,7 +170,7 @@
                     <h6>Aléatoire</h6>
                 </button>
                 <button onclick="taskModifierWindowCloser()" id="task-modifier-window-closer">
-                    <h6>X</6>
+                    <h6 onclick="taskErasing()">X</6>
                 </button>
             </nav>
             <button onclick="taskNameWindowOpener()" class="task-name-modifier-button">
@@ -259,7 +258,6 @@
 
     </main>
 
-    <script src="index.js"></script>
 
     <footer>
         <form action="" method="get" class="form-example">
@@ -292,6 +290,8 @@
             <p id="create">create</p>
         </article>
     </footer>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
