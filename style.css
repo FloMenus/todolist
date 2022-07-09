@@ -1,49 +1,72 @@
-.create{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: blue;
-  border: 1px solid black;
-  width: 200px;
-  height:50px;
+/* FONTS */
+/* font-family: 'Moulpali', cursive;
+font-family: 'Nunito', sans-serif;
+font-family: 'Shadows Into Light Two', cursive;
+font-family: 'Sora', sans-serif;
+font-family: 'Titillium Web', sans-serif;
+*/
+.create {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+    border: 1px solid black;
+    width: 200px;
+    height: 50px;
 }
 
-.create button{
-  height: 50px;
-  width: 50px;
+.create button {
+    height: 50px;
+    width: 50px;
 }
 
-.test{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: blue;
-  border: 1px solid black;
-  width: 200px;
-  height:50px;
+.test {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+    border: 1px solid black;
+    width: 200px;
+    height: 50px;
 }
 
-.test button{
-  height: 50px;
-  width: 50px;
+.test button {
+    height: 50px;
+    width: 50px;
 }
+
 /* HEADER */
 
 header {
     background-color: #5198C0;
-    color : white;
+    color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     height: 10vh;
+    padding-left: 30px;
+    -webkit-box-shadow: 1px 3px 15px 4px rgba(0, 0, 0, 0.63);
+    box-shadow: 1px 3px 15px 4px rgba(0, 0, 0, 0.63);
+}
+
+h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 5vh;
+}
+
+h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 3vh;
+    font-weight: bold;
 }
 
 .profile-image {
-    width: 50px;
+    width: 5vh;
     border-radius: 1000px;
+    border: white solid 3px;
 }
 
 /* MAIN */
@@ -54,19 +77,78 @@ main {
     height: 90vh;
 }
 
-/* MENU DE GAUCHE */
-
-.menu-section {
-    background-color: #7EA7BE;
-    color : white;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+.profile-images-wrapper {
+    padding-right: 2vh;
 }
 
 
-/* Section Status */
+/* MENU DE GAUCHE */
+
+p {
+    font-family: 'Moulpali', cursive;
+    font-weight: lighter;
+}
+
+.menu-section {
+    background-color: #3d7291;
+    color: white;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+}
+
+/* Créateur de tache */
+#task-creator {
+    margin-bottom: 5vh;
+    background-color: #C1E4F8;
+}
+
+#task-creator h4 {
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 25px;
+}
+
+.task-creator-task-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    background-color: #C1E4F8;
+    -webkit-box-shadow: 9px 9px 8px -3px (37, 37, 37, 0.7);
+    box-shadow: 9px 9px 8px -3px rgba(37, 37, 37, 0.7);
+    padding: 5px;
+}
+
+
+/* Section CATEGORIES */
+.categorie-title {
+    font-size: larger;
+    margin-bottom : 25px;
+}
+
+.categories-wrapper {
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorie-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.all-filter-article {
+    margin-bottom: 10px;
+}
+
+.categorie-article {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
 
 .filter-button {
     width: 30px;
@@ -89,43 +171,89 @@ main {
     background-color: #208AEB;
 }
 
-/* Section Priorités */
+
+/* Section PRIORITÉ */
+.prority {
+    height: 150px;
+}
 
 .priority-button {
     width: 30px;
     height: 30px;
 }
 
-.priorities-buttons-wrapper {
+.priorities-checkbox {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     height: 50%;
+    gap : 15px;
 }
 
-#priority-5-filter-button {
+.priorities-checkbox div {
+    display: flex;
+    gap : 10px;
+}
+
+
+#priority-5-checkbox {
     background-color: #E37272;
 }
 
-#priority-4-filter-button {
+#priority-4-checkbox {
     background-color: #DC9167;
 }
 
-#priority-3-filter-button {
+#priority-3-checkbox {
     background-color: #D7B560;
 }
 
-#priority-2-filter-button {
+#priority-2-checkbox {
     background-color: #DBD663;
 }
 
-#priority-1-filter-button {
+#priority-1-checkbox {
     background-color: #CBD975;
 }
 
-#priority-0-filter-button {
+#priority-0-checkbox {
     background-color: #C8C9C8;
 }
+
+/* SECTION DE DROITE */
+
+h3 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 35px;
+    color: #2A5065;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.priority-0 {
+    background-color: #C8C9C8;
+}
+
+.priority-1 {
+    background-color: #CBD975;
+}
+
+.priority-2 {
+    background-color: #DBD663;
+}
+
+.priority-3 {
+    background-color: #D7B560;
+}
+
+.priority-4 {
+    background-color: #DC9167;
+}
+
+.priority-5 {
+    background-color: #E37272;
+}
+
 
 /* Section A FAIRE */
 
@@ -133,12 +261,21 @@ main {
     background-color: #B2CED4;
     width: 32.5%;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     padding: 10px;
+    overflow-y: scroll;
 }
 
+.to-do-section::-webkit-scrollbar {
+    width: 10px;
+    background-color: #B2CED4;
+}
+
+.to-do-section::-webkit-scrollbar-thumb {
+    background-color: #56a2ce;
+}
 /* Section EN COURS*/
 
 
@@ -146,9 +283,23 @@ main {
     background-color: #97C4DD;
     width: 45%;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    overflow-y: scroll;
+}
+
+.in-progress-section::-webkit-scrollbar {
+    width: 10px;
+    background-color: #97C4DD;
+}
+
+.in-progress-section::-webkit-scrollbar-thumb {
+    background-color: #56a2ce;
 }
 
 /* Section FAITES*/
@@ -158,9 +309,21 @@ main {
     width: 32.5%;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
     padding: 10px;
+    overflow-y: scroll;
 }
+
+.done-section::-webkit-scrollbar {
+    width: 10px;
+    background-color: #8CC3F5;
+}
+
+.done-section::-webkit-scrollbar-thumb {
+    background-color: #56a2ce;
+}
+/* Se
 
 /* Sections Extended */
 
@@ -169,7 +332,6 @@ main {
     height: 87vh;
     position: absolute;
     left: 20%
-
 }
 
 /* Gestion des Taches*/
@@ -177,22 +339,36 @@ main {
 .task-wrapper {
     display: flex;
     flex-direction: column;
-    gap : 10px;
-    width: 90%;
+    gap: 10px;
+    width: 50%;
     align-items: center;
-    
+
 }
 
 .task-square {
     width: 140px;
     height: 140px;
-    background-color: blueviolet;
+    -webkit-box-shadow: 9px 9px 8px -3px rgba(117, 117, 117, 0.7);
+    box-shadow: 9px 9px 8px -3px rgba(117, 117, 117, 0.7);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Shadows Into Light Two', cursive;
+    padding: 10px
+}
+.task-square h4 {
+    text-align: center;
+    font-size : 30px
+}
+
+h6 {
+    font-family: 'Shadows Into Light Two', cursive;
 }
 
 .task-navigation {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    font-family: 'Shadows Into Light Two', cursive;
 }
 
 button {
@@ -200,6 +376,8 @@ button {
     border: none;
     background: none;
     cursor: pointer;
+    text-decoration: none;
+
 }
 
 #task-creator {
@@ -208,6 +386,7 @@ button {
     background-color: rgb(109, 31, 182);
     border: 0px;
 }
+
 /* Fenetre de création de taches */
 
 .task-creator-window {
@@ -221,8 +400,7 @@ button {
     margin-left: -100px;
     display: flex;
     flex-direction: column;
-    gap : 40px
-    
+    gap: 40px
 }
 
 .task-name-creator-form {
@@ -243,9 +421,9 @@ button {
     margin-left: -100px;
     display: flex;
     flex-direction: column;
-    gap : 40px
-    
+    gap: 40px
 }
+
 .task-creator-window-nav {
     display: flex;
     flex-direction: row;
@@ -283,7 +461,7 @@ button {
     margin-left: -100px;
     display: flex;
     flex-direction: column;
-    gap : 40px
+    gap: 40px
 }
 
 /* Fenetre de modification de priorité */
@@ -299,7 +477,7 @@ button {
     margin-left: -100px;
     display: flex;
     flex-direction: column;
-    gap : 40px
+    gap: 40px
 }
 
 /* Fenetre de modification de status */
@@ -315,7 +493,7 @@ button {
     margin-left: -100px;
     display: flex;
     flex-direction: column;
-    gap : 40px
+    gap: 40px
 }
 
 .hidden {

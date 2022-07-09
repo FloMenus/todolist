@@ -77,9 +77,6 @@
 // Declaration des variables correspondantes aux fenetres de création & modification dans le HTML
 let taskCreatorWindow = document.getElementsByClassName("task-creator-window")
 let taskModifierWindow = document.getElementsByClassName("task-modifier-window")
-let taskNameModifier = document.getElementsByClassName("task-name-modifier-window")
-let taskPriorityModifier = document.getElementsByClassName("task-priority-modifier-window")
-let taskStatusModifier = document.getElementsByClassName("task-status-modifier-window")
 
 // Fonctions de fermeture ou d'ouverture des fenetre de création & modification
 taskCreatorWindowOpener = () => {
@@ -89,34 +86,15 @@ taskCreatorWindowCloser = () => {
     taskCreatorWindow[0].classList.add("hidden")
 }
 
-taskModifierWindowOpener = () => {
-    taskModifierWindow[0].classList.remove("hidden")
-}
+// taskModifierWindowOpener = () => {
+//     taskModifierWindow[0].classList.remove("hidden")
+// }
 taskModifierWindowCloser = () => {
     taskModifierWindow[0].classList.add("hidden")
 }
 
 
-taskNameWindowOpener=()=> {
-    taskNameModifier[0].classList.remove("hidden")
-}
-taskNameWindowCloser=()=> {
-    taskNameModifier[0].classList.add("hidden")
-}
 
-taskPriorityWindowOpener=()=> {
-    taskPriorityModifier[0].classList.remove("hidden")
-}
-taskPriorityWindowCloser=()=> {
-    taskPriorityModifier[0].classList.add("hidden")
-}
-
-taskStatusWindowOpener=()=> {
-    taskStatusModifier[0].classList.remove("hidden")
-}
-taskStatusWindowCloser=()=> {
-    taskStatusModifier[0].classList.add("hidden")
-}
 
 // TABLEAU CONTENANT LES TACHES
 
@@ -129,23 +107,27 @@ let indexTaskVariable = 0
 
 // CREATION DE TACHES
 
+
+
 let taskCreationForm = document.getElementById("task-name-creator-form")
 let taskToDoWrapper = document.getElementById("task-to-do-wrapper")
+let taskInProgressWrapper = document.getElementById("task-in-progress-wrapper")
+let taskDoneWrapper = document.getElementById("task-done-wrapper")
 
 // FONCTION QUI S'EXECUTE LORQUE L'ON SUBMIT UNE CREATION DE TACHE
 let onTaskSubmit = (e) => {
 
     e.preventDefault() //Evite le rafraichissement de la page lors du submit
     let nameTask = document.getElementById("name-task") // On choppe la valeur du nom donnée lors du submit
-    var task = {value : nameTask.value ,status:'A faire',priority: 0, indexTask : indexTaskVariable} // on déclare l'objet avec tout ses parametres
+    var task = { value: nameTask.value, status: 'A faire', priority: 0, indexTask: indexTaskVariable } // on déclare l'objet avec tout ses parametres
     taskWrapper.push(task) // On met cet objet dans le tableau
-    taskToDoWrapper.innerHTML= '' // On évite les doublons lors de la création de taches dans le HTML
+    taskToDoWrapper.innerHTML = '' // On évite les doublons lors de la création de taches dans le HTML
 
     // VA PARCOURIR TOUT LE TABLEAU , et a chaque objet du tableau, va incrémenter cet objet dans le HTML
     // Les valeurs sont changées à chaque objet de manière dynamique avec le ${}
-    taskWrapper.forEach (task => { 
+    taskWrapper.forEach(task => {
         taskToDoWrapper.innerHTML +=
-    `<div class="task-square statut-${task.status}" id="id-${task.indexTask}">
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
     <nav class="task-navigation">
         <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
             <h6>Modifier</h6>
@@ -156,14 +138,14 @@ let onTaskSubmit = (e) => {
     </nav>
     <h4 class="task-name">${task.value}</h4>
 </div>`
-// Permet de faire augmenter la variable d'index a chaque fois qu'un objet est soumis
-indexTaskVariable+=1
+        // Permet de faire augmenter la variable d'index a chaque fois qu'un objet est soumis
     })
-    console.log (taskWrapper)
+    indexTaskVariable += 1
+    console.table (taskWrapper)
 }
-    // C'est ici que le form est "écouté"
-    //  et qu'il executera la fonction onTaskSubmit () lorsque on le soumettra
-    taskCreationForm.addEventListener("submit",onTaskSubmit)
+// C'est ici que le form est "écouté"
+//  et qu'il executera la fonction onTaskSubmit () lorsque on le soumettra
+taskCreationForm.addEventListener("submit", onTaskSubmit)
 
 // SUPPRESSION DE TACHE
 
@@ -175,44 +157,199 @@ let taskDelete = (indexTaskButton) => {
     deleteButtonSelector.parentElement.parentNode.remove(deleteButtonSelector)
 
     // Suppression dans le tableau (la console affiche le tableau de taches lors de la suppression de taches)
-    let taskWrapperFilteringDeletion = taskWrapper.filter(function (task)
-    {
-      return task.indexTask != indexTaskButton
+    let taskWrapperFilteringDeletion = taskWrapper.filter(function (task) {
+        return task.indexTask != indexTaskButton
     }
     )
 
     taskWrapper = taskWrapperFilteringDeletion
-    console.log(taskWrapper)
 }
 
-// MODIFICATION DE TACHE (A partir de ce moment là c'est work in progress donc j'ai pas commenté)
+// MODIFICATION DE TACHE //////////////////////////////////////
 
-
+let concernedTask
 
 let taskNameModifierForm = document.getElementById("task-name-modifier-form")
 
-taskNameModifierSubmit = (indexTaskName) => {
-    indexTaskName.preventDefault()
-    let nameTaskModifier = document.getElementById("name-task-modifer")
-    // IDENTIFIER LE BON ELEMENT DU TABLEAU
-    // taskFinder = (task) => {
-    //     return  taskWrapper.indexOf(task.indexTask = `${indexTask}`)
-    //   }
+taskModifierWindowOpener = (index) => {
+    taskModifierWindow[0].classList.remove("hidden")
+    console.log(concernedTask)
+    concernedTask = index
+    console.log (index)
 
-
-      indexOfTask = taskWrapper.findIndex(task => {
-        return task.indexTask = indexTaskName;
-      })
-
-      console.log(indexOfTask)
-
-    taskWrapper[indexOfTask].value = nameTaskModifier
-
-    console.log(taskWrapper)
 }
 
-taskNameModifierForm.addEventListener("submit",taskNameModifierSubmit)
+// MODIFICATION DE NOMS
+
+let nameTaskModifierForm = document.getElementById("task-name-modifier-form")
+
+nameTaskModifier = (i) => {
+    let taskNameModified = document.getElementById("name-task-modifier")
+    i.preventDefault()
+
+    taskWrapper[concernedTask].value = taskNameModified.value
+
+
+    taskToDoWrapper.innerHTML = ""
+    console.log (taskToDoWrapper)
+    taskWrapper.forEach(task => {
+        taskToDoWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+    console.log (taskWrapper)
+    })
+}
+nameTaskModifierForm.addEventListener("submit", nameTaskModifier)
+
+
+// MODIFICATION DE STATUS
+
+let statusTaskModifierForm = document.getElementById("task-status-modifier-form")
+
+let statusToDoRadio = document.getElementById("status-todo-radio")
+let statusInProgressRadio = document.getElementById("status-inprogress-radio")
+let statusDoneRadio = document.getElementById("status-done-radio")
+
+statusTaskModifier = (e) => {
+    e.preventDefault()
+
+    if (statusToDoRadio.checked) {
+        taskWrapper[concernedTask].status = statusToDoRadio.value
+        
+    }
+    else if (statusInProgressRadio.checked) {
+        taskWrapper[concernedTask].status = statusInProgressRadio.value
+    }
+    else if (statusDoneRadio.checked) {
+        taskWrapper[concernedTask].status = statusDoneRadio.value
+    }
+
+
+    taskToDoWrapper.innerHTML = ''
+
+    taskWrapper.forEach(task => {
+        taskToDoWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+    })
+}
+statusTaskModifierForm.addEventListener("submit", statusTaskModifier)
+
+// MODIFICATION DE PRIORITÉ
+
+let priorityTaskModifierForm = document.getElementById("task-priority-modifier-form")
+
+let priorityOneRadio = document.getElementById("priority-1-radio")
+let priorityTwoRadio = document.getElementById("priority-2-radio")
+let priorityThreeRadio = document.getElementById("priority-3-radio")
+let priorityFourRadio = document.getElementById("priority-4-radio")
+let priorityFiveRadio = document.getElementById("priority-5-radio")
+let priorityZeroRadio = document.getElementById("priority-0-radio")
+
+priorityTaskModifier = (e) => {
+    e.preventDefault()
+
+
+    console.log(concernedTask)
+    if (priorityOneRadio.checked) {
+        taskWrapper[concernedTask].priority = Number(priorityOneRadio.value)
+    }
+    else if (priorityTwoRadio.checked) {
+        taskWrapper[concernedTask].priority = Number(priorityTwoRadio.value)
+    }
+    else if (priorityThreeRadio.checked) {
+        taskWrapper[concernedTask].priority = Number(priorityThreeRadio.value)
+    }
+    else if (priorityFourRadio.checked) {
+        taskWrapper[concernedTask].priority = Number(priorityFourRadio.value)
+    }
+    else if (priorityFiveRadio.checked) {
+        taskWrapper[concernedTask].priority = Number(priorityFiveRadio.value)
+    }
+    else if (priorityZeroRadio.checked) {
+        taskWrapper[concernedTask].priority = Number(priorityZeroRadio.value)
+    }
+
+
+
+    taskToDoWrapper.innerHTML = ''
+
+    taskWrapper.forEach(task => {
+        taskToDoWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+
+    })
+}
+priorityTaskModifierForm.addEventListener("submit", priorityTaskModifier)
+
 
 // FILTRAGE
 
+
+
+
+toDoFilteringClicking = () => {
+    toDoFiltering()
+}
+
+const toDoFiltering = () => {
+    taskWrapperFilteredToDo = taskWrapper.filter(task => task.status == 'A faire')
+    console.log(taskWrapperFilteredToDo)
+    taskInProgressWrapper.classList.add("hidden")
+    taskDoneWrapper.classList.add("hidden")
+    taskToDoWrapper.classList.add("extended")
+}
+
+
+let taskFilteredinProgress = []
+
+inProgressFilteringClicking = () => {
+    inProgressFiltering()
+
+}
+
+inProgressFiltering = () => {
+    taskWrapperFilteredinProgress = taskWrapper.filter(task => task.status == 'En cours')
+    console.log(taskWrapperFilteredinProgress)
+}
+
+
+let taskFilteredDone = []
+
+doneFilteringClicking = () => {
+    doneFiltering()
+}
+
+const doneFiltering = () => {
+    taskFilterToDo = taskWrapper.filter(task => task.status == 'Faite')
+    console.log(taskWrapperFilteredDone)
+}
 
