@@ -17,7 +17,7 @@
 
 <body>
     <header>
-        <h1>ToDoList</h1>
+        <img class="logo" src="images/todolist.png">
         <h2>ProjetFictif</h2>
         <div class="profile-images-wrapper">
             <img class="profile-image" src="images/elon-musk-profile.jpg">
@@ -36,23 +36,23 @@
                 <p></p>
                 <div class="categorie-button-wrapper">
                     <article class="all-filter-article categorie-article">
-                        <button onclick="allFilteringClicking()" id="all-filter-button"
-                            class="filter-button activated"></button>
+                        <button onclick="allFilteringClicking()" id="all-filter-button" class="filter-button activated">
+                            <p class="statut-number" id="all-task"></p></button>
                         <p>Toutes</p>
                     </article>
                     <article class="to-do-filter-article categorie-article">
-                        <button onclick="toDoFilteringClicking()" id="to-do-filter-button"
-                            class="filter-button"></button>
+                        <button onclick="toDoFiltering()" id="to-do-filter-button" class="filter-button">
+                            <p class="statut-number" id="todo-task"></p></button>
                         <p>A faire</p>
                     </article>
                     <article class="in-progress-filter-article categorie-article">
-                        <button onclick="inProgressFilteringClicking()" id="in-progress-filter-button"
-                            class="filter-button"></button>
+                        <button onclick="inProgressFiltering()" id="in-progress-filter-button" class="filter-button">
+                            <p class="statut-number" id="in-progress-task"></p></button>
                         <p>En cours</p>
                     </article>
                     <article class="done-filter-article categorie-article">
-                        <button onclick="doneFilteringClicking()" id="done-filter-button"
-                            class="filter-button"></button>
+                        <button onclick="doneFiltering()" id="done-filter-button" class="filter-button">
+                            <p class="statut-number" id="done-task"></p> </button>
                         <p>Faites</p>
                     </article>
                 </div>
@@ -104,7 +104,6 @@
         </div>
 
 
-
         </div>
 
         <div class="sections-wrapper">
@@ -134,7 +133,7 @@
 
         <div class="task-creator-window hidden">
             <nav class="task-creator-window-nav">
-                <button onclick="randomTaskGeneration()"class="random-section">
+                <button onclick="randomTaskGeneration()" class="random-section">
                     <img class="dice-image" src="images/dice.png" alt="aléatoire">
                     <h6>Aléatoire</h6>
                 </button>
@@ -143,12 +142,14 @@
                 </button>
             </nav>
             <form id="task-name-creator-form">
-                <label for="name"><h6>Nom</h6></label><br>
-                <input id="name-task" type="text" value="" placeholder="Nom de la tache" /><!-- Value a modifier dynamiquement -->
+                <label for="name">
+                    <h6>Nom</h6>
+                </label><br>
+                <input id="name-task" type="text" value="" placeholder="Le nom de votre tâche" />
+                <!-- Value a modifier dynamiquement -->
 
-                <button id ="name-modifer-submit"type="submit">Valider</button>
+                <button id="name-modifer-submit" type="submit">Valider</button>
             </form>
-
         </div>
 
         <!-- Fenetre de modification de tâche -->

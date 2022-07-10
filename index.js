@@ -1,75 +1,3 @@
-// déclaration des variables et constantes
-
-
-
-
-
-
-
-// déclaration des éléments
-
-
-
-
-// événements
-
-// createButton.addEventListener("click", () => {
-//   onTaskSubmit("create")
-// })
-
-// document.getElementById("create").addEventListener('click',function(e){
-//   e.preventDefault(); // Cancel the native event
-//   e.stopPropagation();// Don't bubble/capture the event any further
-// });
-
-// // fonctions
-// const create = document.getElementById('create')
-
-// const createdClicked = () => {
-//   create.innerHTML = `<p>création!</p>`
-// }
-
-// const test = document.getElementById('test')
-
-// const testClicked = () => {
-//   test.innerHTML = `${task}`
-// }
-
-
-
-// FONCTIONNE!!! 
-// const test = document.getElementById('create')
-
-// const onTaskSubmit = () => {
-//   create.innerHTML = `<p>test réussi!</p>`
-// }
-// !!!!
-
-// const task = {
-//   name: "comprendre",
-//   value: "le",
-//   status:"javascript"
-// }
-// const task = {
-//   name: "Etudier",
-//   value: "5",
-//   status:"En cours"
-// }
-
-// const creation = document.getElementById('create')
-
-// const createdClicked = () => {
-//   create.innerHTML = `${task.name} ${task.value} ${task.status}`
-// }
-
-
-
-// const tatonnement = document.getElementById('test')
-
-// const testClicked = () => {
-//   test.innerHTML = `<p>${taskCreatorWindow[0]}</p>`
-// }
-
 
 
 //  OUVERTURE/FERMETURE DES FENETRES ///////////////////////////////
@@ -162,12 +90,10 @@ let taskDelete = (indexTaskButton) => {
     deleteButtonSelector.parentElement.parentNode.remove(deleteButtonSelector)
 
     // Suppression dans le tableau (la console affiche le tableau de taches lors de la suppression de taches)
-    let taskWrapperFilteringDeletion = taskWrapper.filter(function (task) {
+    taskWrapper = taskWrapper.filter(function (task) {
         return task.indexTask != indexTaskButton
     }
     )
-    indexTaskVariable = 1
-    taskWrapper = taskWrapperFilteringDeletion
 }
 
 // MODIFICATION DE TACHE //////////////////////////////////////
@@ -521,7 +447,7 @@ let randomTaskGeneration = () => {
     
 
     taskToDoWrapper.innerHTML = ""
-    taskFilteredToDo.forEach(task => {
+    taskWrapper.forEach(task => {
         taskToDoWrapper.innerHTML +=
             `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
         <nav class="task-navigation">
