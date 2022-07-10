@@ -32,30 +32,34 @@
             </button>
 
             <div class="categories-wrapper" <section class="categories">
-                <p class="categorie-title">CATEGORIES</p>
+                <p class="categorie-title">STATUT</p>
                 <p></p>
                 <div class="categorie-button-wrapper">
                     <article class="all-filter-article categorie-article">
-                        <button id="all-filter-button" class="filter-button activated"></button>
+                        <button onclick="allFilteringClicking()" id="all-filter-button"
+                            class="filter-button activated"></button>
                         <p>Toutes</p>
                     </article>
                     <article class="to-do-filter-article categorie-article">
-                        <button onclick ="toDoFilteringClicking()" id="to-do-filter-button" class="filter-button"></button>
+                        <button onclick="toDoFilteringClicking()" id="to-do-filter-button"
+                            class="filter-button"></button>
                         <p>A faire</p>
                     </article>
                     <article class="in-progress-filter-article categorie-article">
-                        <button onclick ="inProgressFilteringClicking()" id="in-progress-filter-button" class="filter-button"></button>
+                        <button onclick="inProgressFilteringClicking()" id="in-progress-filter-button"
+                            class="filter-button"></button>
                         <p>En cours</p>
                     </article>
                     <article class="done-filter-article categorie-article">
-                        <button onclick ="doneFilteringClicking()" id="done-filter-button" class="filter-button"></button>
+                        <button onclick="doneFilteringClicking()" id="done-filter-button"
+                            class="filter-button"></button>
                         <p>Faites</p>
                     </article>
                 </div>
             </div>
 
             <section class="priorities">
-                <p class="categorie-title">PRIORITÉS</p>
+                <p class="categorie-title">PRIORITES</p>
                 <form class="priorities-checkbox">
 
                     <div>
@@ -103,33 +107,34 @@
 
         </div>
 
-        </section>
-        <section class="to-do-section">
-            <h3>A faire</h3>
-            <div class="task-wrapper" id="task-to-do-wrapper">
+        <div class="sections-wrapper">
+            <section class="to-do-section">
+                <h3>A faire</h3>
+                <div class="task-wrapper" id="task-to-do-wrapper">
 
-            </div>
-        </section>
+                </div>
+            </section>
 
-        <section class="in-progress-section">
-            <h3>En cours</h3>
-            <div class="task-wrapper" id="task-in-progress-wrapper">
+            <section class="in-progress-section">
+                <h3>En cours</h3>
+                <div class="task-wrapper" id="task-in-progress-wrapper">
 
 
-            </div>
+                </div>
 
-        </section>
-        <section class="done-section">
-            <h3>Faites</h3>
-            <div class="task-wrapper" id="task-done-wrapper">
+            </section>
+            <section class="done-section">
+                <h3>Faites</h3>
+                <div class="task-wrapper" id="task-done-wrapper">
 
-            </div>
-        </section>
+                </div>
+            </section>
+        </div>
         <!-- Fenetre de création de taches -->
 
         <div class="task-creator-window hidden">
             <nav class="task-creator-window-nav">
-                <button class="random-section">
+                <button onclick="randomTaskGeneration()"class="random-section">
                     <img class="dice-image" src="images/dice.png" alt="aléatoire">
                     <h6>Aléatoire</h6>
                 </button>
@@ -138,10 +143,10 @@
                 </button>
             </nav>
             <form id="task-name-creator-form">
-                <label for="name">Nom</label><br>
-                <input id="name-task" type="text" value="Nom de la tâche" /><!-- Value a modifier dynamiquement -->
+                <label for="name"><h6>Nom</h6></label><br>
+                <input id="name-task" type="text" value="" placeholder="Nom de la tache" /><!-- Value a modifier dynamiquement -->
 
-                <button type="submit">Valider</button>
+                <button id ="name-modifer-submit"type="submit">Valider</button>
             </form>
 
         </div>
@@ -158,7 +163,7 @@
             <!-- Modification de nom -->
 
             <form id="task-name-modifier-form">
-                <label for="name">Nom</label><br>
+                <label for="name">Nom</label>
                 <input id="name-task-modifier" type="text" value="" /><!-- Value a modifier dynamiquement -->
                 <button type="submit">Valider</button>
             </form>
@@ -166,14 +171,14 @@
             <!-- Modification de statut -->
 
             <form id="task-status-modifier-form">
-                <input type="radio" id="status-todo-radio" name="status-radio" value= 'A faire'>
+                <input type="radio" id="status-todo-radio" name="status-radio" value='A faire'>
                 <label for="priority-1-radio">A faire</label>
 
-                <input type="radio" id="status-inprogress-radio" name="status-radio" value= 'En cours'>
+                <input type="radio" id="status-inprogress-radio" name="status-radio" value='En cours'>
                 <label for="priority-2-radio">En cours</label>
 
-                <input type="radio" id="status-done-radio" name="status-radio" value= 'Faite'>
-                <label for="priority-3-radio">Faites</label>
+                <input type="radio" id="status-done-radio" name="status-radio" value='Faite'>
+                <label for="priority-3-radio">Faite</label>
 
                 <button type="submit">Valider</button>
             </form>
@@ -181,22 +186,22 @@
             <!-- Modification de priorité -->
 
             <form id="task-priority-modifier-form">
-                <input type="radio" id="priority-1-radio" name="priority" value= 1 >
+                <input type="radio" id="priority-1-radio" name="priority" value=1>
                 <label for="priority-1-radio">1</label>
 
-                <input type="radio" id="priority-2-radio" name="priority" value= 2 >
+                <input type="radio" id="priority-2-radio" name="priority" value=2>
                 <label for="priority-2-radio">2</label>
 
-                <input type="radio" id="priority-3-radio" name="priority" value= 3 >
+                <input type="radio" id="priority-3-radio" name="priority" value=3>
                 <label for="priority-3-radio">3</label>
 
-                <input type="radio" id="priority-4-radio" name="priority" value= 4 >
+                <input type="radio" id="priority-4-radio" name="priority" value=4>
                 <label for="priority-4-radio">4</label>
 
-                <input type="radio" id="priority-5-radio" name="priority" value= 5 >
+                <input type="radio" id="priority-5-radio" name="priority" value=5>
                 <label for="priority-5-radio">5</label>
 
-                <input type="radio" id="priority-0-radio" name="priority" value= 0 >
+                <input type="radio" id="priority-0-radio" name="priority" value=0>
                 <label for="priority-0-radio">0</label>
 
                 <input type="submit" value="Valider">

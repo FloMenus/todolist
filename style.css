@@ -64,9 +64,9 @@ h2 {
 }
 
 .profile-image {
-    width: 5vh;
+    width: 4vh;
     border-radius: 1000px;
-    border: white solid 3px;
+    border: rgb(148, 201, 223) solid 3px;
 }
 
 /* MAIN */
@@ -92,7 +92,7 @@ p {
 .menu-section {
     background-color: #3d7291;
     color: white;
-    width: 250px;
+    width: 15%;
     display: flex;
     flex-direction: column;
     padding: 20px 20px 20px 20px;
@@ -125,7 +125,7 @@ p {
 /* Section CATEGORIES */
 .categorie-title {
     font-size: larger;
-    margin-bottom : 25px;
+    margin-bottom: 25px;
 }
 
 .categories-wrapper {
@@ -187,12 +187,12 @@ p {
     flex-direction: column;
     flex-wrap: wrap;
     height: 50%;
-    gap : 15px;
+    gap: 15px;
 }
 
 .priorities-checkbox div {
     display: flex;
-    gap : 10px;
+    gap: 10px;
 }
 
 
@@ -254,6 +254,16 @@ h3 {
     background-color: #E37272;
 }
 
+/* SECTIONS */
+
+.sections-wrapper {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Sections Extended */
+
 
 /* Section A FAIRE */
 
@@ -276,6 +286,7 @@ h3 {
 .to-do-section::-webkit-scrollbar-thumb {
     background-color: #56a2ce;
 }
+
 /* Section EN COURS*/
 
 
@@ -323,15 +334,10 @@ h3 {
 .done-section::-webkit-scrollbar-thumb {
     background-color: #56a2ce;
 }
-/* Se
-
-/* Sections Extended */
 
 .extended {
-    width: 78%;
-    height: 87vh;
-    position: absolute;
-    left: 20%
+    width: 100%;
+    border: none;
 }
 
 /* Gestion des Taches*/
@@ -355,9 +361,10 @@ h3 {
     font-family: 'Shadows Into Light Two', cursive;
     padding: 10px
 }
+
 .task-square h4 {
     text-align: center;
-    font-size : 30px
+    font-size: 30px
 }
 
 h6 {
@@ -392,43 +399,86 @@ button {
 .task-creator-window {
     width: 300px;
     height: 300px;
-    background-color: #C8C9C8;
+    background-color: #C1E4F8;
     position: absolute;
     top: 30%;
     left: 50%;
-    margin-top: -100px;
-    margin-left: -100px;
+    margin-top: -150px;
+    margin-left: -150px;
     display: flex;
     flex-direction: column;
-    gap: 40px
+    gap: 40px;
+    -webkit-box-shadow: 0px 0px 1000px 1000px rgba(0, 0, 0, 0.72);
+    box-shadow: 0px 0px 1000px 1000px rgba(0, 0, 0, 0.72);
 }
 
-.task-name-creator-form {
+#task-name-creator-form h6 {
+    font-size: 30px;
+}
+
+#task-name-creator-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.task-name-creator-form label {
+    text-align: center;
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+input[type=text] {
+    background: RGBA(0, 0, 0, 0.10);
+    padding: 10px;
+    margin: 10px 0;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 20px;
+    width: 80%;
+    height: 20%;
+}
+
+#name-modifer-submit {
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 30px;
+    background-color: #738a97;
+    padding: 10px;
+    border-radius: 1000px;
+    color: #dadada
 }
 
 /* Fenetre de modification de taches */
 
 .task-modifier-window {
-    width: 300px;
-    height: 300px;
-    background-color: #C8C9C8;
+    width: 400px;
+    height: 400px;
+    background-color: #C1E4F8;
     position: absolute;
     top: 30%;
     left: 50%;
     margin-top: -100px;
-    margin-left: -100px;
+    margin-left: -200px;
     display: flex;
     flex-direction: column;
-    gap: 40px
+    gap: 40px;
+    font-family: 'Shadows Into Light Two', cursive;
+    -webkit-box-shadow: 0px 0px 1000px 1000px rgba(0, 0, 0, 0.72);
+    box-shadow: 0px 0px 1000px 1000px rgba(0, 0, 0, 0.72);
+    align-items: flex-end;
 }
+
 
 .task-creator-window-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.task-creator-window-nav h6 {
+    font-size: 20px;
 }
 
 #task-name-modifier-button {
@@ -436,10 +486,66 @@ button {
     align-items: flex-start;
 }
 
+#task-name-modifier-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10%;
+}
+
+#task-name-modifier-form button {
+    font-family: 'Shadows Into Light Two', cursive;
+    background-color: #738a97;
+    padding: 10px;
+    border-radius: 1000px;
+    color: #dadada;
+    font-size: 20px;
+}
+
+#task-status-modifier-form {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    align-items: center;
+    font-size: 20px;
+    margin-right: 10%;
+}
+
+#task-status-modifier-form button {
+    font-family: 'Shadows Into Light Two', cursive;
+    background-color: #738a97;
+    padding: 10px;
+    border-radius: 1000px;
+    color: #dadada;
+    font-size: 20px;
+}
+
+#task-priority-modifier-form {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    font-size: 20px;
+    margin-right: 10%;
+}
+
+#task-priority-modifier-form input {
+    font-family: 'Shadows Into Light Two', cursive;
+    background-color: #738a97;
+    padding: 10px;
+    border-radius: 1000px;
+    border: none;
+    color: #dadada;
+    font-size: 20px;
+
+}
+
 .random-section {
     display: flex;
     align-items: center;
-
+    font-size: 20px;
+    gap: 5px;
 }
 
 .dice-image {
@@ -498,4 +604,181 @@ button {
 
 .hidden {
     display: none;
+}
+
+
+
+/* RESPONSIVE */
+
+
+@media screen and (max-width: 820px) {
+    main {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 3vh;
+    }
+
+    h2 {
+        font-size: 2vh;
+    }
+
+    .menu-section {
+        flex-direction: row;
+        width: 100%;
+        height: 20%;
+        overflow-x: scroll;
+        gap: 50px;
+        padding: 0px;
+        align-items: center;
+        padding: 0%;
+    }
+
+    .task-creator-task-square {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    #task-creator {
+        width: 50px;
+        height: 50px;
+        font-size: 10px;
+        align-items: center;
+        margin: 0px;
+        margin-left: 10px;
+    }
+
+    #task-creator h4 {
+        font-family: 'Shadows Into Light Two', cursive;
+        font-size: 13px;
+    }
+
+    .categories-wrapper {
+        margin: 0%;
+        justify-content: center;
+        height: 60%;
+    }
+
+    .categorie-button-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .all-filter-article {
+        margin-bottom: 0px;
+        margin-right: 20px;
+    }
+
+    .priorities {
+        display: flex;
+        flex-direction: column;
+        width: min-content;
+        align-items: flex-start;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+    .priorities-checkbox {
+        width: max-content;
+        flex-direction: row;
+    }
+
+    .sections-wrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .task-square {
+        width: 60px;
+        height: 60px;
+    }
+
+    .task-square h4 {
+        text-align: center;
+        font-size: 15px
+    }
+
+    .task-square h6 {
+        font-size: 10px
+    }
+
+
+    .task-wrapper {
+        flex-direction: row;
+        width: max-content;
+        padding: 0%;
+    }
+
+    .to-do-section {
+        width: 100vw;
+        height: 25vh;
+        padding: 0%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    .in-progress-section {
+        width: 100vw;
+        height: 25vh;
+        padding: 0%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+        border: none;
+    }
+
+    .done-section {
+        width: 100vw;
+        height: 25vh;
+        padding: 0%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .extended {
+        height: 75vh;
+    }
+
+    .task-modifier-window {
+        width: 300px;
+        height: 500px;
+        margin-left: -150px;
+    }
+    #task-name-modifier-form {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    #task-name-modifier-form button {
+        padding: 5px;
+        font-size: 10px;
+    }
+    #task-status-modifier-form {
+        font-size: 10px;
+        margin-right: 10px;
+        margin-left: 10px;
+        gap : 20px
+    }
+    #task-status-modifier-form button {
+        padding: 5px;
+        font-size: 10px;
+    }
+    #task-priority-modifier-form {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 10px;
+        gap : 8px
+    }
+    #task-priority-modifier-form input {
+        padding: 5px;
+        font-size: 10px;
+    }
 }

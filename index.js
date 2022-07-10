@@ -114,6 +114,10 @@ let taskToDoWrapper = document.getElementById("task-to-do-wrapper")
 let taskInProgressWrapper = document.getElementById("task-in-progress-wrapper")
 let taskDoneWrapper = document.getElementById("task-done-wrapper")
 
+let taskFilteredToDo = []
+let taskFilteredinProgress = []
+let taskFilteredDone = []
+
 // FONCTION QUI S'EXECUTE LORQUE L'ON SUBMIT UNE CREATION DE TACHE
 let onTaskSubmit = (e) => {
 
@@ -142,6 +146,7 @@ let onTaskSubmit = (e) => {
     })
     indexTaskVariable += 1
     console.table (taskWrapper)
+    taskCreatorWindowCloser()
 }
 // C'est ici que le form est "écouté"
 //  et qu'il executera la fonction onTaskSubmit () lorsque on le soumettra
@@ -161,7 +166,7 @@ let taskDelete = (indexTaskButton) => {
         return task.indexTask != indexTaskButton
     }
     )
-
+    indexTaskVariable = 1
     taskWrapper = taskWrapperFilteringDeletion
 }
 
@@ -236,8 +241,42 @@ statusTaskModifier = (e) => {
 
     taskToDoWrapper.innerHTML = ''
 
-    taskWrapper.forEach(task => {
+    taskFilteredToDo.forEach(task => {
         taskToDoWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+    })
+
+    taskInProgressWrapper.innerHTML = ''
+
+    taskFilteredInProgress.forEach(task => {
+        taskInProgressWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+    })
+
+    taskDoneWrapper.innerHTML = ''
+
+    taskFilteredDone.forEach(task => {
+        taskDoneWrapper.innerHTML +=
             `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
         <nav class="task-navigation">
             <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
@@ -292,7 +331,7 @@ priorityTaskModifier = (e) => {
 
     taskToDoWrapper.innerHTML = ''
 
-    taskWrapper.forEach(task => {
+    taskFilteredToDo.forEach(task => {
         taskToDoWrapper.innerHTML +=
             `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
         <nav class="task-navigation">
@@ -305,7 +344,40 @@ priorityTaskModifier = (e) => {
         </nav>
         <h4 class="task-name">${task.value}</h4>
     </div>`
+    })
 
+    taskInProgressWrapper.innerHTML = ''
+
+    taskFilteredInProgress.forEach(task => {
+        taskInProgressWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+    })
+
+    taskDoneWrapper.innerHTML = ''
+
+    taskFilteredDone.forEach(task => {
+        taskDoneWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
     })
 }
 priorityTaskModifierForm.addEventListener("submit", priorityTaskModifier)
@@ -313,7 +385,22 @@ priorityTaskModifierForm.addEventListener("submit", priorityTaskModifier)
 
 // FILTRAGE
 
+let toDoSection = document.getElementsByClassName("to-do-section")
+let inProgressSection = document.getElementsByClassName("in-progress-section")
+let doneSection = document.getElementsByClassName("done-section")
 
+const displayReset = () => {
+    toDoSection[0].classList.remove("extended")
+    toDoSection[0].classList.remove("hidden")
+    inProgressSection[0].classList.remove("extended")
+    inProgressSection[0].classList.remove("hidden")
+    doneSection[0].classList.remove("extended")
+    doneSection[0].classList.remove("hidden")
+}
+
+allFilteringClicking = () => {
+    displayReset()
+}
 
 
 toDoFilteringClicking = () => {
@@ -321,35 +408,132 @@ toDoFilteringClicking = () => {
 }
 
 const toDoFiltering = () => {
-    taskWrapperFilteredToDo = taskWrapper.filter(task => task.status == 'A faire')
-    console.log(taskWrapperFilteredToDo)
-    taskInProgressWrapper.classList.add("hidden")
-    taskDoneWrapper.classList.add("hidden")
-    taskToDoWrapper.classList.add("extended")
+    taskFilteredToDo = taskWrapper.filter(task => task.status == 'A faire')
+    console.log(taskFilteredToDo)
+
+    displayReset()
+    toDoSection[0].classList.add("extended")
+    inProgressSection[0].classList.add("hidden")
+    doneSection[0].classList.add("hidden")
+
+    taskToDoWrapper.innerHTML = ''
+    taskFilteredToDo.forEach(task => {
+        taskToDoWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+})
 }
 
 
-let taskFilteredinProgress = []
 
 inProgressFilteringClicking = () => {
     inProgressFiltering()
-
 }
 
-inProgressFiltering = () => {
-    taskWrapperFilteredinProgress = taskWrapper.filter(task => task.status == 'En cours')
-    console.log(taskWrapperFilteredinProgress)
+const inProgressFiltering = () => {
+    taskFilteredinProgress = taskWrapper.filter(task => task.status == 'En cours')
+    console.log(taskFilteredinProgress)
+
+    displayReset()
+    inProgressSection[0].classList.add("extended")
+    toDoSection[0].classList.add("hidden")
+    doneSection[0].classList.add("hidden")
+
+    taskInProgressWrapper.innerHTML = ''
+    taskFilteredinProgress.forEach(task => {
+        taskInProgressWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+})
 }
 
-
-let taskFilteredDone = []
 
 doneFilteringClicking = () => {
     doneFiltering()
 }
 
 const doneFiltering = () => {
-    taskFilterToDo = taskWrapper.filter(task => task.status == 'Faite')
-    console.log(taskWrapperFilteredDone)
+    taskFilteredDone = taskWrapper.filter(task => task.status == 'Faite')
+    console.log(taskFilteredDone)
+
+    displayReset()
+    doneSection[0].classList.add("extended")
+    inProgressSection[0].classList.add("hidden")
+    toDoSection[0].classList.add("hidden")
+
+    taskDoneWrapper.innerHTML = ''
+    taskFilteredDone.forEach(task => {
+        taskDoneWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+})
+    
 }
 
+// RANDOM
+
+let randomTaskGeneration = () => {
+    let randomTaskWrapper = [
+        "Promener le chien",
+        "Faire la vaisselle",
+        "Acheter du pain",
+        "Aller au centre commercial",
+        "Apprendre JavaScript",
+        "Trainer sur TikTok",
+        "Répondre à ses mails",
+        "Faire le plein",
+        "Sortir les poubelles",
+        "Etendre le linge"
+    ]
+
+    let randomTask = {
+        value: randomTaskWrapper[Math.floor(Math.random() * randomTaskWrapper.length)], status: "A faire", priority: 0
+    }
+
+    taskWrapper.push (randomTask)
+    
+
+    taskToDoWrapper.innerHTML = ""
+    taskFilteredToDo.forEach(task => {
+        taskToDoWrapper.innerHTML +=
+            `<div class="task-square statut-${task.status} priority-${task.priority}" id="id-${task.indexTask}">
+        <nav class="task-navigation">
+            <button onclick="taskModifierWindowOpener(${task.indexTask})" class="modify-task task-button">
+                <h6>Modifier</h6>
+            </button>
+            <button onclick ="taskDelete(${task.indexTask})" id="task-${task.indexTask}" class="delete-task task-button">
+                <h6>X</h6>
+            </button>
+        </nav>
+        <h4 class="task-name">${task.value}</h4>
+    </div>`
+})
+taskCreatorWindowCloser()
+}
